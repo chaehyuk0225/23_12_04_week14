@@ -3,7 +3,7 @@
 # ● 아래의 코드를 수정 혹은 프로그래밍하여 문제를 해결하시오.
 # ● 문제의 점수는 각각 표시되며, 부분점수가 존재합니다.
 #
-# 학번 : ________ 이름 : ______
+# 학번 : 20201870 이름 : 방채혁
 
 import os
 import time
@@ -20,8 +20,11 @@ import time
 # 1 ≤ target 의 길이 ≤ 100
 # target 은 영소문자로만 이루어져 있습니다.
 
-def solution(my_strung, target):
-    answer = 0
+def solution(my_string, target):
+    if my_string.find(target) == -1:   
+        answer = 0
+    else: 
+        answer = 1
     return answer
 
 # Q.2 10점
@@ -37,7 +40,7 @@ def solution(my_strung, target):
 # letter 에 공백은 연속으로 두 개 이상 존재하지 않습니다.
 #
 # letter = 여러분의 좌우명 또는 인상 깊었던 말을 쓰시오.
-
+# letter = ('Life is unfair get used to it')
 def solution(letter):
     morse = { 
     '.-':'a','-...':'b','-.-.':'c','-..':'d','.':'e','..-.':'f',
@@ -45,7 +48,10 @@ def solution(letter):
     '--':'m','-.':'n','---':'o','.--.':'p','--.-':'q','.-.':'r',
     '...':'s','-':'t','..-':'u','...-':'v','.--':'w','-..-':'x',
     '-.--':'y','--..':'z'}
-    answer = ''
+    answer = []
+    decode = letter.split()
+    for i in decode:
+        answer.append(morse[i])
     return answer
 
 # Q.3 10점
@@ -63,7 +69,13 @@ def solution(letter):
 # PROGRAMMERS-857 행성은 알파벳 소문자만 사용합니다.
 
 def solution(age):
-    answer = ''
+    morse = { 
+    '0':'a','1':'b','2':'c','3':'d','4':'e','5':'f',
+    '6':'g','7':'h','8':'i','9':'j'}
+    answer = []
+    list(age)
+    for i in age:
+        answer.append(morse[i])
     return answer
 
 # Q.4 10점
