@@ -114,7 +114,16 @@ def solution(r1, r2):
 # 정답이 너무 클 수 있으니 문자열로 바꾸어 return 합니다.
 #
 # numbers = [8, 30, 17, 2, 23]
-
+import random
 def solution(numbers):
     answer = ''
+    rnum1 = random.shuffle(numbers)
+    rnum2 = random.shuffle(numbers)
+    for 
+        if ''.join(rnum1) > ''.join(rnum2):
+            answer = ''.join(rnum1)
+        elif ''.join(rnum1) < ''.join(rnum2):
+            answer = ''.join(rnum2)
+        elif ''.join(rnum1) = ''.join(rnum2):
+            answer = 0
     return answer
