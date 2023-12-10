@@ -20,8 +20,8 @@ import time
 # 1 ≤ target 의 길이 ≤ 100
 # target 은 영소문자로만 이루어져 있습니다.
 
-def solution(my_string, target):
-    if my_string.find(target) == -1:   
+def solution(my_string, target): #my_stuing 오타수정
+    if my_string.find(target) == -1: #if문으로 경우를 나눔 부분 문자열일 때, 부분 문자열이 아닐 때 find 함수를 사용하여 부분 문자열을 판단 
         answer = 0
     else: 
         answer = 1
@@ -41,6 +41,8 @@ def solution(my_string, target):
 #
 # letter = 여러분의 좌우명 또는 인상 깊었던 말을 쓰시오.
 # letter = ('Life is unfair get used to it')
+# letter = ('.-.. .. ..-. . .. ... ..- -. ..-. .- .. .-. --. . - ..- ... . -.. - --- .. -')
+
 def solution(letter):
     morse = { 
     '.-':'a','-...':'b','-.-.':'c','-..':'d','.':'e','..-.':'f',
@@ -48,10 +50,10 @@ def solution(letter):
     '--':'m','-.':'n','---':'o','.--.':'p','--.-':'q','.-.':'r',
     '...':'s','-':'t','..-':'u','...-':'v','.--':'w','-..-':'x',
     '-.--':'y','--..':'z'}
-    answer = []
-    decode = letter.split()
-    for i in decode:
-        answer.append(morse[i])
+    answer = ''
+    decode = letter.split()    #split 함수를 사용하여 letter를 공백단위로 나눔
+    for i in decode:           #for문을 사용하여 공백단위로 나눠진 letter의 갯수만큼 반복
+        answer += (morse[i])   #해석 된 값이 answer에 추가됨
     return answer
 
 # Q.3 10점
@@ -70,12 +72,11 @@ def solution(letter):
 
 def solution(age):
     morse = { 
-    '0':'a','1':'b','2':'c','3':'d','4':'e','5':'f',
+    '0':'a','1':'b','2':'c','3':'d','4':'e','5':'f',  #위 모스부호 morse표와 같이 딕셔너리로 'a는 0, b는 1, ..., j는 9' 이 조건을 나타냄
     '6':'g','7':'h','8':'i','9':'j'}
-    answer = []
-    list(age)
-    for i in age:
-        answer.append(morse[i])
+    answer = ''
+    for i in age:             #for문을 사용하여 age의 갯수만큼 반복(자릿수만큼)
+        answer += (morse[i])  #변경 된 값이 answer에 추가됨
     return answer
 
 # Q.4 10점
