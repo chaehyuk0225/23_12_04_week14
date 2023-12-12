@@ -3,7 +3,7 @@
 # ● 아래의 코드를 수정 혹은 프로그래밍하여 문제를 해결하시오.
 # ● 문제의 점수는 각각 표시되며, 부분점수가 존재합니다.
 #
-# 학번 : ________ 이름 : ______
+# 학번 : 20201870 이름 : 방채혁
 
 import os
 import time
@@ -20,8 +20,11 @@ import time
 # 1 ≤ target 의 길이 ≤ 100
 # target 은 영소문자로만 이루어져 있습니다.
 
-def solution(my_strung, target):
-    answer = 0
+def solution(my_string, target): #my_stuing 오타수정
+    if my_string.find(target) == -1: #if문으로 경우를 나눔 부분 문자열일 때, 부분 문자열이 아닐 때 find 함수를 사용하여 부분 문자열을 판단 
+        answer = 0
+    else: 
+        answer = 1
     return answer
 
 # Q.2 10점
@@ -37,6 +40,8 @@ def solution(my_strung, target):
 # letter 에 공백은 연속으로 두 개 이상 존재하지 않습니다.
 #
 # letter = 여러분의 좌우명 또는 인상 깊었던 말을 쓰시오.
+# letter = ('Life is unfair get used to it')
+# letter = ('.-.. .. ..-. . .. ... ..- -. ..-. .- .. .-. --. . - ..- ... . -.. - --- .. -')
 
 def solution(letter):
     morse = { 
@@ -46,6 +51,9 @@ def solution(letter):
     '...':'s','-':'t','..-':'u','...-':'v','.--':'w','-..-':'x',
     '-.--':'y','--..':'z'}
     answer = ''
+    decode = letter.split()    #split 함수를 사용하여 letter를 공백단위로 나눔
+    for i in decode:           #for문을 사용하여 공백단위로 나눠진 letter의 갯수만큼 반복
+        answer += (morse[i])   #해석 된 값이 answer에 추가됨
     return answer
 
 # Q.3 10점
@@ -63,7 +71,12 @@ def solution(letter):
 # PROGRAMMERS-857 행성은 알파벳 소문자만 사용합니다.
 
 def solution(age):
+    morse = { 
+    '0':'a','1':'b','2':'c','3':'d','4':'e','5':'f',  #위 모스부호 morse표와 같이 딕셔너리로 'a는 0, b는 1, ..., j는 9' 이 조건을 나타냄
+    '6':'g','7':'h','8':'i','9':'j'}
     answer = ''
+    for i in age:             #for문을 사용하여 age의 갯수만큼 반복(자릿수만큼)
+        answer += (morse[i])  #변경 된 값이 answer에 추가됨
     return answer
 
 # Q.4 10점
@@ -101,7 +114,16 @@ def solution(r1, r2):
 # 정답이 너무 클 수 있으니 문자열로 바꾸어 return 합니다.
 #
 # numbers = [8, 30, 17, 2, 23]
-
+import random
 def solution(numbers):
     answer = ''
-    return answer
+    for i in numbers                           #for문으로 numbers에 갯수만큼 반복
+    rnum1 = random.shuffle(numbers)            #shuffle함수로 numbers에 요소들을 무작위로 배열하여 rnum1에 저장
+    rnum2 = random.shuffle(numbers)            #shuffle함수로 numbers에 요소들을 무작위로 배열하여 rnum2에 저장                   
+        if ''.join(rnum1) > ''.join(rnum2):    #rnum1과 rnum2를 이어 정수로 크기를 비교 rnum1이 크다면 rnum1를 정수로 answer에 저장
+            answer = ''.join(rnum1)           
+        elif ''.join(rnum1) < ''.join(rnum2):  #rnum2가 크다면 rnum2를 정수로 answer에 저장
+            answer = ''.join(rnum2)
+        elif ''.join(rnum1) = ''.join(rnum2):  #rnum1 rnum2가 서로 같다면 0을 저장
+            answer = 0
+    return str(answer)                         #answer값을 문자열로 반환
