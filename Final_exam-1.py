@@ -117,13 +117,13 @@ def solution(r1, r2):
 import random
 def solution(numbers):
     answer = ''
-    rnum1 = random.shuffle(numbers)
-    rnum2 = random.shuffle(numbers)
-    for 
-        if ''.join(rnum1) > ''.join(rnum2):
-            answer = ''.join(rnum1)
-        elif ''.join(rnum1) < ''.join(rnum2):
+    for i in numbers                           #for문으로 numbers에 갯수만큼 반복
+    rnum1 = random.shuffle(numbers)            #shuffle함수로 numbers에 요소들을 무작위로 배열하여 rnum1에 저장
+    rnum2 = random.shuffle(numbers)            #shuffle함수로 numbers에 요소들을 무작위로 배열하여 rnum2에 저장                   
+        if ''.join(rnum1) > ''.join(rnum2):    #rnum1과 rnum2를 이어 정수로 크기를 비교 rnum1이 크다면 rnum1를 정수로 answer에 저장
+            answer = ''.join(rnum1)           
+        elif ''.join(rnum1) < ''.join(rnum2):  #rnum2가 크다면 rnum2를 정수로 answer에 저장
             answer = ''.join(rnum2)
-        elif ''.join(rnum1) = ''.join(rnum2):
+        elif ''.join(rnum1) = ''.join(rnum2):  #rnum1 rnum2가 서로 같다면 0을 저장
             answer = 0
-    return answer
+    return str(answer)                         #answer값을 문자열로 반환
